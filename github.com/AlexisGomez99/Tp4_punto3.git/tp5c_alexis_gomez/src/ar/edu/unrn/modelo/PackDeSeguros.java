@@ -5,13 +5,13 @@ import java.util.List;
 
 public class PackDeSeguros implements GestorSeguros{
 	private String nombre;
-	private List<Seguro> listaSeguros= new ArrayList<Seguro>();
+	private List<GestorSeguros> listaSeguros= new ArrayList<GestorSeguros>();
 	public PackDeSeguros(String nombre) {
 		super();
 		this.nombre = nombre;
 	}
 	
-	public void agregarSeguro(Seguro seguro) {
+	public void agregarSeguro(GestorSeguros seguro) {
 		listaSeguros.add(seguro);
 	}
 
@@ -23,7 +23,7 @@ public class PackDeSeguros implements GestorSeguros{
 	@Override
 	public double calcularTotalSeguros() {
 		double total=calcularSeguro();
-		for(Seguro seguro: listaSeguros) {
+		for(GestorSeguros seguro: listaSeguros) {
 			total= total + seguro.calcularTotalSeguros();
 		}
 		return total*0.05;
